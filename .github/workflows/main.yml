@@ -2,6 +2,8 @@ name: Build, test and deploy backend
 
 env:
   SPRING_DATASOURCE_URL: jdbc:postgresql://localhost:5432/parking_app_test_db
+  SPRING_DATASOURCE_USERNAME: admin
+  SPRING_DATASOURCE_PASSWORD: admin
 
 
 on:
