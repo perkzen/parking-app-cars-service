@@ -38,6 +38,10 @@ jobs:
           distribution: 'temurin'
           cache: maven
 
+      - name: Apply schema to PostgreSQL database
+        run: |
+            psql -h localhost -U admin -d parking_app_test_db -f src/main/resources/schema.sql
+
       - name: Build and test with Maven
         run: mvn -B package --file pom.xml
 
