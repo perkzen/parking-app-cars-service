@@ -54,11 +54,14 @@ jobs:
           name: Package
           path: build
 
-      - name: Build and push Docker image
-        run: |
-            docker build -t perkzen/parking-app-cars-service:latest .
-            echo "$DOCKER_PASS" | docker login -u "$DOCKER_USER" --password-stdin
-            docker push perkzen/parking-app-cars-service:latest
+      - name: Docker login
+        run: echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
         env:
             DOCKER_USERNAME: ${{ secrets.DOCKER_USER }}
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS }}
+
+      - name: Build Docker image
+        run: docker build -t perkzen/parking-app-car-service .
+
+      - name: Push Docker image
+        run: docker push perkzen/parking-app-car-service
