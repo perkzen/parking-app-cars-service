@@ -61,7 +61,7 @@ jobs:
             DOCKER_PASSWORD: ${{ secrets.DOCKER_PASS }}
 
       - name: Build Docker image
-        run: docker build -t perkzen/parking-app-car-service .
+        run: docker build -t perkzen/parking-app-cars-service .
 
       - name: Push Docker image
-        run: docker push perkzen/parking-app-car-service
+        run: docker push perkzen/parking-app-cars-service
